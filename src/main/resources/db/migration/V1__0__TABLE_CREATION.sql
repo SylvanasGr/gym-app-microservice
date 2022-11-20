@@ -1,0 +1,7 @@
+CREATE TABLE DUMMIES
+(
+    DUMMY_ID    VARCHAR(128) primary key,
+    DESCRIPTION VARCHAR(128)
+);
+
+
