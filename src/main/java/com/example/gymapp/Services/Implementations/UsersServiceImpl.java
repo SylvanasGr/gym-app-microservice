@@ -1,7 +1,7 @@
 package com.example.gymapp.Services.Implementations;
 
 import com.example.gymapp.Services.UsersService;
-
+import com.example.gymapp.Entities.Trainee;
 import com.example.gymapp.Entities.User;
 import com.example.gymapp.Repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +21,10 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public User getUserByEmail(final String email) {
         return usersRepo.getUserByEmail(email);
+    }
+
+    @Override
+    public Trainee getTraineeById(int id) {
+        return usersRepo.getTraineeById(id);
     }
 }
