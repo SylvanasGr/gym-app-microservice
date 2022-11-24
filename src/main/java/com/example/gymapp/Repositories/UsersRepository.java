@@ -1,18 +1,28 @@
 package com.example.gymapp.Repositories;
 
 import com.example.gymapp.Entities.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import com.example.gymapp.Mappers.UserMapper;
 
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 @Repository
-public interface UsersRepository extends JpaRepository<User, Integer> {
-    
-    @Query(value = "SELECT * FROM Users WHERE UserId = :Id", nativeQuery = true)
-    Optional<User> getUserById(int Id);
+public class UsersRepository {
 
-    @Query(name = "SELECT * FROM Users WHERE Email = :email", nativeQuery = true)
-    Optional<User> getUserByEmail(String email);
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    public User getUserById(int Id) {
+        String query = "SELECT * FROM Users WHERE UserId = ?";
+        User u = jdbcTemplate.queryForObject(query, new UserMapper(), Id);
+        return u;
+    }
+
+    public User getUserByEmail(final String email) {
+        String query = "SELECT * FROM Users WHERE Email = ?";
+        User u = jdbcTemplate.queryForObject(query, new UserMapper(), email);
+        return u;
+    }
 }
