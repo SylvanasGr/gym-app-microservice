@@ -22,4 +22,8 @@ public class TraineesController {
         return new ResponseEntity<>(usersService.getTraineeById(id), HttpStatus.OK);
     }
 
+    @GetMapping("email/{email}")
+    public ResponseEntity<Trainee> getTraineeByEmail(@PathVariable String email) {
+        return new ResponseEntity<>(usersService.getTraineeByEmail(email), HttpStatus.OK);
+    }
 }

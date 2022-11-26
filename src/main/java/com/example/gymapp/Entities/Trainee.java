@@ -1,16 +1,15 @@
 package com.example.gymapp.Entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Trainee {
+public class Trainee extends User {
 
-    private User user;
+    public Trainee(User u) {
+        setUserFields(u);
+    }
+
     private float weight;
     private float height;
     private String injuries;

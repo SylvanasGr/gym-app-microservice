@@ -26,6 +26,5 @@ public class UsersController {
     public ResponseEntity<User> getUserByEmail(@PathVariable final String email) {
         return new ResponseEntity<>(usersService.getUserByEmail(email), HttpStatus.OK);
     }
-    
 
 }

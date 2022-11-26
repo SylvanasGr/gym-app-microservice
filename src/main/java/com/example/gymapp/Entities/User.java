@@ -22,4 +22,18 @@ public class User {
     private String country;
     private String area;
     private String phoneNumber;
+
+    public void setUserFields(User u) {
+        this.setUserId(u.getUserId());
+        this.setName(u.getName());
+        this.setSurname(u.getSurname());
+        this.setSex(u.getSex());
+        this.setAge(u.getAge());
+        this.setEmail(u.getEmail());
+        this.setUsername(u.getUsername());
+        this.setPassword(u.getPassword());
+        this.setCountry(u.getCountry());
+        this.setArea(u.getArea());
+        this.setPhoneNumber(u.getPhoneNumber());
+    }
 }

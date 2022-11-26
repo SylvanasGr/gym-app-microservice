@@ -1,18 +1,17 @@
 package com.example.gymapp.Entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import com.example.gymapp.Entities.Enums.TrainerType;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Trainer {
+public class Trainer extends User {
+
+    public Trainer (User u) {
+        setUserFields(u);
+    }
     
-    private int userId;
-    private TrainerType trainerTypeId;
+    private TrainerType trainerType;
     private String bankAccount;
     private String profileDescription;
 }

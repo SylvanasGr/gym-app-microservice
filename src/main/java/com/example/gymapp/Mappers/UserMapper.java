@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.example.gymapp.Entities.User;
 import com.example.gymapp.Entities.Enums.Sex;
+import com.example.gymapp.Exceptions.GenericException;
 
 public class UserMapper implements RowMapper<User> {
 
@@ -27,11 +28,9 @@ public class UserMapper implements RowMapper<User> {
         return u;
     }
 
-    private Sex mapSex(String s) {
+    private Sex mapSex(String s) throws GenericException {
         if (s.equals("M")) return Sex.MALE;
-        else return Sex.FEMALE;
+        else if (s.equals("F")) return Sex.FEMALE;
+        throw new GenericException("Unknown sex: " + s);
     }
-
-
-    
 }
