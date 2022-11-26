@@ -31,23 +31,34 @@ public class UsersRepository {
     }
 
     public Trainee getTraineeById(int id) {
-        String query = "SELECT U.*, T.* FROM Trainees AS T LEFT JOIN USERS AS U "
-            .concat("ON U.UserId=T.UserId WHERE U.UserId = ?");
-        Trainee t = jdbcTemplate.queryForObject(query, new TraineeMapper(), id);
+        Trainee t = jdbcTemplate.queryForObject(
+            getByIdQuery("Trainees"), new TraineeMapper(), id
+            );
         return t;
     }
 
     public Trainee getTraineeByEmail(final String email) {
-        String query = "SELECT U.*, T.* FROM Trainees AS T LEFT JOIN USERS AS U "
-            .concat("ON U.UserId=T.UserId WHERE U.Email = ?");
-        Trainee t = jdbcTemplate.queryForObject(query, new TraineeMapper(), email);
+        Trainee t = jdbcTemplate.queryForObject(
+            getByEmailQuery("Trainees"), new TraineeMapper(), email
+            );
         return t;
     }
 
     public Trainer getTrainerById(int id) {
-        String query = "SELECT U.*, T.* FROM Trainers AS T LEFT JOIN USERS AS U "
-        .concat("ON U.UserId=T.UserId WHERE U.UserId = ?");
-        Trainer t = jdbcTemplate.queryForObject(query, new TrainerMapper(), id);
+        Trainer t = jdbcTemplate.queryForObject(
+            getByIdQuery("Trainers"), new TrainerMapper(), id
+            );
         return t;
     }
+
+    private String getByIdQuery(String table) {
+        return "SELECT U.*, T.* FROM " + table + " AS T LEFT JOIN USERS AS U "
+        .concat("ON U.UserId=T.UserId WHERE U.UserId = ?");
+    }
+
+    private String getByEmailQuery(String table) {
+        return "SELECT U.*, T.* FROM " + table + " AS T LEFT JOIN USERS AS U "
+        .concat("ON U.UserId=T.UserId WHERE U.Email = ?");
+    }
+
 }
