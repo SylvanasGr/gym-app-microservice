@@ -5,6 +5,9 @@ import com.example.gymapp.Entities.Trainee;
 import com.example.gymapp.Entities.Trainer;
 import com.example.gymapp.Entities.User;
 import com.example.gymapp.Repositories.UsersRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +33,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public List<Trainee> getTrainees() {
+        return usersRepo.getTrainees();
+    }
+
+    @Override
     public Trainee getTraineeByEmail(final String email) {
         return usersRepo.getTraineeByEmail(email);
     }
@@ -37,5 +45,15 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public Trainer getTrainerById(int id) {
         return usersRepo.getTrainerById(id);
+    }
+
+    @Override
+    public Trainer getTrainerByEmail(final String email) {
+        return usersRepo.getTrainerByEmail(email);
+    }
+
+    @Override
+    public List<Trainer> getTrainers() {
+        return usersRepo.getTrainers();
     }
 }

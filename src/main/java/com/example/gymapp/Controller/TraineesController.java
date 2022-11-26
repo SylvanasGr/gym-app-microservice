@@ -1,5 +1,7 @@
 package com.example.gymapp.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.gymapp.Entities.Trainee;
 import com.example.gymapp.Services.UsersService;
+
 
 
 @RestController
@@ -25,5 +28,10 @@ public class TraineesController {
     @GetMapping("email/{email}")
     public ResponseEntity<Trainee> getTraineeByEmail(@PathVariable String email) {
         return new ResponseEntity<>(usersService.getTraineeByEmail(email), HttpStatus.OK);
+    }
+
+    @GetMapping("all")
+    public ResponseEntity<List<Trainee>> getTrainees() {
+        return new ResponseEntity<>(usersService.getTrainees(), HttpStatus.OK);
     }
 }
