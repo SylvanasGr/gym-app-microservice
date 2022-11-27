@@ -1,10 +1,10 @@
-package com.example.gymapp.Entities;
+package com.example.gymapp.Entities.jdbc;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.example.gymapp.Entities.Enums.Sex;
+import com.example.gymapp.Enums.Sex;
 
 @Data
 @AllArgsConstructor

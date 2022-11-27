@@ -1,4 +1,4 @@
-package com.example.gymapp.Entities;
+package com.example.gymapp.Entities.jdbc;
 
 import lombok.Data;
 

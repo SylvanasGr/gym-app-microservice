@@ -1,4 +1,4 @@
-package com.example.gymapp.Entities.Enums;
+package com.example.gymapp.Enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
