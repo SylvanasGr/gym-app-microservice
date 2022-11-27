@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.gymapp.Entities.Trainee;
+import com.example.gymapp.Entities.jdbc.Trainee;
 import com.example.gymapp.Services.UsersService;
 
 

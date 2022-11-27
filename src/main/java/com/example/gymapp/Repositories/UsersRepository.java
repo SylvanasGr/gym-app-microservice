@@ -1,8 +1,8 @@
 package com.example.gymapp.Repositories;
 
-import com.example.gymapp.Entities.Trainee;
-import com.example.gymapp.Entities.Trainer;
-import com.example.gymapp.Entities.User;
+import com.example.gymapp.Entities.jdbc.Trainee;
+import com.example.gymapp.Entities.jdbc.Trainer;
+import com.example.gymapp.Entities.jdbc.User;
 import com.example.gymapp.Mappers.TraineeMapper;
 import com.example.gymapp.Mappers.TrainerMapper;
 import com.example.gymapp.Mappers.UserMapper;
@@ -18,7 +18,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class UsersRepository {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     public User getUserById(int id) {
         String query = "SELECT * FROM Users WHERE UserId = ?";

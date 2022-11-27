@@ -1,9 +1,9 @@
 package com.example.gymapp.Services.Implementations;
 
 import com.example.gymapp.Services.UsersService;
-import com.example.gymapp.Entities.Trainee;
-import com.example.gymapp.Entities.Trainer;
-import com.example.gymapp.Entities.User;
+import com.example.gymapp.Entities.jdbc.Trainee;
+import com.example.gymapp.Entities.jdbc.Trainer;
+import com.example.gymapp.Entities.jdbc.User;
 import com.example.gymapp.Repositories.UsersRepository;
 
 import java.util.List;

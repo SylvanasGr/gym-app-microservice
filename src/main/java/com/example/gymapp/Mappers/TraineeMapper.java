@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.example.gymapp.Entities.Trainee;
+import com.example.gymapp.Entities.jdbc.Trainee;
 
 public class TraineeMapper implements RowMapper<Trainee> {
 

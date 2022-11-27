@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.example.gymapp.Entities.Trainer;
-import com.example.gymapp.Entities.Enums.TrainerType;
+import com.example.gymapp.Entities.jdbc.Trainer;
+import com.example.gymapp.Enums.TrainerType;
 import com.example.gymapp.Exceptions.GenericException;
 
 public class TrainerMapper implements RowMapper<Trainer> {

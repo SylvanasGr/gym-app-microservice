@@ -2,9 +2,9 @@ package com.example.gymapp.Services;
 
 import java.util.List;
 
-import com.example.gymapp.Entities.Trainee;
-import com.example.gymapp.Entities.Trainer;
-import com.example.gymapp.Entities.User;
+import com.example.gymapp.Entities.jdbc.Trainee;
+import com.example.gymapp.Entities.jdbc.Trainer;
+import com.example.gymapp.Entities.jdbc.User;
 
 public interface UsersService {
 

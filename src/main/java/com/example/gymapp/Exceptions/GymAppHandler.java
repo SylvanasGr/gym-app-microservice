@@ -1,6 +1,6 @@
 package com.example.gymapp.Exceptions;
 
-import com.example.gymapp.Entities.Enums.GymAppErrorCode;
+import com.example.gymapp.Enums.GymAppErrorCode;
 import com.example.gymapp.Exceptions.model.ApiError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

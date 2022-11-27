@@ -1,6 +1,6 @@
 package com.example.gymapp.Exceptions;
 
-import com.example.gymapp.Entities.Enums.GymAppErrorCode;
+import com.example.gymapp.Enums.GymAppErrorCode;
 
 public class GenericException extends  GymAppException{
 

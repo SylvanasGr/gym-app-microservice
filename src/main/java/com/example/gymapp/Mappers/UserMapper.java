@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.example.gymapp.Entities.User;
-import com.example.gymapp.Entities.Enums.Sex;
+import com.example.gymapp.Entities.jdbc.User;
+import com.example.gymapp.Enums.Sex;
 import com.example.gymapp.Exceptions.GenericException;
 
 public class UserMapper implements RowMapper<User> {
