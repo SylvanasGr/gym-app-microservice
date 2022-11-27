@@ -46,7 +46,7 @@ CREATE TABLE Trainees
 
 CREATE TABLE ExerciseCategories
 (
-    Id SERIAL,
+    Id varchar,
     Name VARCHAR(45),
     CONSTRAINT ExerciseCategories_PK PRIMARY KEY (Id)
 );
@@ -54,7 +54,7 @@ CREATE TABLE ExerciseCategories
 CREATE TABLE Exercises
 (
     Name VARCHAR(45),
-    CategoryId INTEGER,
+    CategoryId varchar,
     CONSTRAINT Exercises_PK PRIMARY KEY (Name),
     CONSTRAINT Exercises_FK FOREIGN KEY (CategoryId) REFERENCES ExerciseCategories
 );
@@ -63,8 +63,10 @@ CREATE TABLE CustomTrainerExercises
 (
     TrainerId INTEGER,
     Name VARCHAR(45),
-    CategoryId INTEGER,
+    CategoryId VARCHAR,
     EquipmentDescription VARCHAR(150),
+    ImageUrl VARCHAR,
+    VideoUrl VARCHAR,
     CONSTRAINT CustomTrainerExercises_PK PRIMARY KEY (TrainerId),
     CONSTRAINT CustomTrainerExercises_FK1 FOREIGN KEY (TrainerId) REFERENCES Trainers,
     CONSTRAINT CustomTrainerExercises_FK2 FOREIGN KEY (CategoryId) REFERENCES ExerciseCategories
