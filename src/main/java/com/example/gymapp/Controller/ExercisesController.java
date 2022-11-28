@@ -3,6 +3,7 @@ package com.example.gymapp.Controller;
 import com.example.gymapp.Entities.CustomTrainerExercise;
 import com.example.gymapp.Entities.Exercise;
 import com.example.gymapp.Entities.composite_ids.CustomTrainerExerciseId;
+import com.example.gymapp.Enums.ExerciseCategory;
 import com.example.gymapp.Services.CustomTrainerExerciseService;
 import com.example.gymapp.Services.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,5 +39,11 @@ public class ExercisesController {
     @PostMapping("insertCustomExercise")
     public ResponseEntity<CustomTrainerExercise> insertCustomTrainerExercise(@RequestBody final CustomTrainerExercise customTrainerExercise){
         return new ResponseEntity<>(customTrainerExerciseService.insertCustomTrainerExercise(customTrainerExercise),HttpStatus.OK);
+    }
+
+    @GetMapping("getAllCategories")
+    public ResponseEntity<List<String>> getAllExerciseCategories(){
+
+        return  new ResponseEntity<>(exerciseService.getAllExerciseCategories(),HttpStatus.OK);
     }
 }

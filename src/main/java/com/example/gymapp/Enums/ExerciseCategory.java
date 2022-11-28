@@ -1,8 +1,12 @@
 package com.example.gymapp.Enums;
 
+import com.example.gymapp.Entities.Exercise;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -17,4 +21,6 @@ public enum ExerciseCategory {
     LEGS("Legs");
 
     private String description;
+
+
 }
