@@ -14,7 +14,7 @@ CREATE TABLE Users
     CONSTRAINT Users_PK PRIMARY KEY (UserId)
 );
 
-CREATE TABLE TrainerTypes 
+CREATE TABLE TrainerTypes
 (
     TypeId INTEGER,
     Name VARCHAR(60),
@@ -23,7 +23,7 @@ CREATE TABLE TrainerTypes
 INSERT INTO TrainerTypes(TypeId, Name) VALUES(1, 'Gym');
 INSERT INTO TrainerTypes(TypeId, Name) VALUES(2, 'Freelancer');
 
-CREATE TABLE Trainers 
+CREATE TABLE Trainers
 (
     UserId INTEGER,
     TrainerTypeId INTEGER,
@@ -34,7 +34,7 @@ CREATE TABLE Trainers
     CONSTRAINT Trainers_FK2 FOREIGN KEY (TrainerTypeId) REFERENCES TrainerTypes
 );
 
-CREATE TABLE Trainees 
+CREATE TABLE Trainees
 (
     UserId INTEGER,
     Weight REAL,
@@ -49,7 +49,7 @@ CREATE TABLE Exercises
 (
     Name VARCHAR(45),
     Category VARCHAR(20),
-    CONSTRAINT Exercises_PK PRIMARY KEY (Name),
+    CONSTRAINT Exercises_PK PRIMARY KEY (Name)
 );
 
 CREATE TABLE CustomTrainerExercises
@@ -60,10 +60,10 @@ CREATE TABLE CustomTrainerExercises
     EquipmentDescription VARCHAR(150),
     ImageUrl VARCHAR,
     VideoUrl VARCHAR,
-    CONSTRAINT CustomTrainerExercises_PK PRIMARY KEY (TrainerId),
-    CONSTRAINT CustomTrainerExercises_FK1 FOREIGN KEY (TrainerId) REFERENCES Trainers,
+--     CONSTRAINT CustomTrainerExercises_PK PRIMARY KEY (TrainerId), this is not correct, one trainer can have multiple exercises
+    CONSTRAINT CustomTrainerExercises_PK PRIMARY KEY (TrainerId,Name),
+    CONSTRAINT CustomTrainerExercises_FK1 FOREIGN KEY (TrainerId) REFERENCES Trainers
 );
-
 CREATE TABLE Courses
 (
     Id SERIAL,
@@ -73,6 +73,6 @@ CREATE TABLE Courses
     Duration INTEGER,
     Price REAL,
     IsPersonal BOOLEAN,
-    CONSTRAINT Courses_PK PRIMARY KEY (Id),
+    CONSTRAINT Courses_PK PRIMARY KEY (Id,TrainerId),
     CONSTRAINT Courses_FK FOREIGN KEY (TrainerId) REFERENCES Trainers
 );
