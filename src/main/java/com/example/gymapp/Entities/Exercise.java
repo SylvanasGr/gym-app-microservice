@@ -18,7 +18,7 @@ public class Exercise {
     @Column(name = "name",nullable = false)
     private String name;
     @Enumerated(EnumType.STRING)
-    @Column(name = "categoryid")
+    @Column(name = "category")
     private ExerciseCategory exerciseCategory;
 
 }

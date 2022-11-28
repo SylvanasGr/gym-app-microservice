@@ -23,7 +23,7 @@ public class CustomTrainerExercise {
     @Column(name = "name",nullable = false)
     private String name;
     @Enumerated(EnumType.STRING)
-    @Column(name = "categoryid")
+    @Column(name = "category")
     private ExerciseCategory exerciseCategory;
     @Column(name = "equipmentdescription")
     private String equipmentDescription;
