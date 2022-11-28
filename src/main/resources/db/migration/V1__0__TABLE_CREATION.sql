@@ -44,32 +44,24 @@ CREATE TABLE Trainees
     CONSTRAINT Trainees_FK FOREIGN KEY (UserId) REFERENCES Users
 );
 
-CREATE TABLE ExerciseCategories
-(
-    Id varchar,
-    Name VARCHAR(45),
-    CONSTRAINT ExerciseCategories_PK PRIMARY KEY (Id)
-);
 
 CREATE TABLE Exercises
 (
     Name VARCHAR(45),
-    CategoryId varchar,
+    Category VARCHAR(20),
     CONSTRAINT Exercises_PK PRIMARY KEY (Name),
-    CONSTRAINT Exercises_FK FOREIGN KEY (CategoryId) REFERENCES ExerciseCategories
 );
 
 CREATE TABLE CustomTrainerExercises
 (
     TrainerId INTEGER,
     Name VARCHAR(45),
-    CategoryId VARCHAR,
+    Category VARCHAR(20),
     EquipmentDescription VARCHAR(150),
     ImageUrl VARCHAR,
     VideoUrl VARCHAR,
     CONSTRAINT CustomTrainerExercises_PK PRIMARY KEY (TrainerId),
     CONSTRAINT CustomTrainerExercises_FK1 FOREIGN KEY (TrainerId) REFERENCES Trainers,
-    CONSTRAINT CustomTrainerExercises_FK2 FOREIGN KEY (CategoryId) REFERENCES ExerciseCategories
 );
 
 CREATE TABLE Courses

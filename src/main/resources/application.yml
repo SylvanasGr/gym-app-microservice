@@ -3,12 +3,12 @@ spring:
     name: gym_app_service
   datasource:
     url: jdbc:postgresql://pg-db-2.cyjlsdyq5qfv.us-east-1.rds.amazonaws.com:5432/egym
-    username: postgres
-    password: mPiTo7ClUVFITw2YF08Q
+    username: backend
+    password: ~2~PwP=rxKu1ZRB
     driver-class-name: org.postgresql.Driver
-    flyway:
-    baselineOnMigrate: true
-    locations: classpath:db/migration
+    # flyway:
+    # baselineOnMigrate: true
+    # locations: classpath:db/migration
   jpa:
     hibernate:
       ddl-auto: none
