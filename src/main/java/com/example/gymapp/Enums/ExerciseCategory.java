@@ -17,7 +17,7 @@ public enum ExerciseCategory {
     BACK("Back"),
     SHOULDERS("Shoulders"),
     ARMS("Arms"),
-    ABS("Abdominal"),
+    ABDOMINAL("Abdominal"),
     LEGS("Legs");
 
     private String description;

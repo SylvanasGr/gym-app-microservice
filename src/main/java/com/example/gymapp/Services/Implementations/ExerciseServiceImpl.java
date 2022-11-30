@@ -22,15 +22,20 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
+    public List<Exercise> getAllExercisesPerCategory(ExerciseCategory category) {
+        return exerciseRepository.findAllByExerciseCategory(category);
+    }
+
+    @Override
     public List<String> getAllExerciseCategories() {
         List<String> exerciseCategories = new ArrayList<>();
         exerciseCategories.add(ExerciseCategory.SHOULDERS.getDescription());
         exerciseCategories.add(ExerciseCategory.LEGS.getDescription());
-        exerciseCategories.add(ExerciseCategory.ABS.getDescription());
+        exerciseCategories.add(ExerciseCategory.ABDOMINAL.getDescription());
         exerciseCategories.add(ExerciseCategory.ARMS.getDescription());
         exerciseCategories.add(ExerciseCategory.CHEST.getDescription());
         exerciseCategories.add(ExerciseCategory.BACK.getDescription());
-        return  exerciseCategories;
+        return exerciseCategories;
     }
 
 }

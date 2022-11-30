@@ -1,13 +1,14 @@
 package com.example.gymapp.Dtos;
 
 import com.example.gymapp.Entities.CustomTrainerExercise;
+import com.example.gymapp.Enums.ExerciseCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @AllArgsConstructor
@@ -15,19 +16,19 @@ import javax.validation.constraints.NotNull;
 public class CustomTrainerExerciseDto {
     @Min(1)
     private int trainerId;
-    @NotNull()
+    @NotEmpty()
     private String name;
-    @NotNull
-    private String exerciseCategory;
-    @NotNull
+    @NotEmpty
+    private ExerciseCategory exerciseCategory;
+    @NotEmpty
     private String equipmentDescription;
-    @NotNull
+    @NotEmpty
     private String videoUrl;
-    @NotNull
+    @NotEmpty
     private String imageUrl;
 
-    public CustomTrainerExerciseDto(CustomTrainerExercise customTrainerExercise){
-        BeanUtils.copyProperties(customTrainerExercise,this);
+    public CustomTrainerExerciseDto(CustomTrainerExercise customTrainerExercise) {
+        BeanUtils.copyProperties(customTrainerExercise, this);
     }
 
 

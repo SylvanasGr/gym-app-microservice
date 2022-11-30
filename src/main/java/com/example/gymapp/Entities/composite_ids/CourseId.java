@@ -10,10 +10,10 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseId  implements Serializable {
+public class CourseId implements Serializable {
     @Serial
     private static final long serialVersionUID = -1L;
-    private int id;
+    private String name;
     private int trainerId;
 
 }

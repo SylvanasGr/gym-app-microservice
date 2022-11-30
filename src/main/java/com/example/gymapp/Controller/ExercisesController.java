@@ -3,6 +3,7 @@ package com.example.gymapp.Controller;
 import com.example.gymapp.Dtos.CustomTrainerExerciseDto;
 import com.example.gymapp.Entities.Exercise;
 import com.example.gymapp.Entities.composite_ids.CustomTrainerExerciseId;
+import com.example.gymapp.Enums.ExerciseCategory;
 import com.example.gymapp.Services.CustomTrainerExerciseService;
 import com.example.gymapp.Services.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,14 @@ public class ExercisesController {
     @Autowired
     private CustomTrainerExerciseService customTrainerExerciseService;
 
-    @GetMapping("getAll")
+    @GetMapping("getAllExercises")
     public ResponseEntity<List<Exercise>> getAllExercises() {
         return new ResponseEntity<>(exerciseService.getAllExercises(), HttpStatus.OK);
+    }
+
+    @GetMapping("getAllExercises/{category}")
+    public ResponseEntity<List<Exercise>> getAllExercisesPerCategory(@PathVariable final ExerciseCategory category) {
+        return new ResponseEntity<>(exerciseService.getAllExercisesPerCategory(category), HttpStatus.OK);
     }
 
     @GetMapping("getCustomTrainerExercises/{trainerId}")

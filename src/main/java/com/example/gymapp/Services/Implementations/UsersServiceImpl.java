@@ -1,5 +1,6 @@
 package com.example.gymapp.Services.Implementations;
 
+import com.example.gymapp.Exceptions.GenericException;
 import com.example.gymapp.Services.UsersService;
 import com.example.gymapp.Entities.jdbc.Trainee;
 import com.example.gymapp.Entities.jdbc.Trainer;
@@ -55,5 +56,15 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public List<Trainer> getTrainers() {
         return usersRepo.getTrainers();
+    }
+
+    //todo: refactored this code
+    @Override
+    public void isTrainerExists(int trainerId) {
+        try {
+            getTrainerById(trainerId);
+        } catch (Exception e) {
+            throw new GenericException(String.format("Trainer with id: %s does not exists", trainerId));
+        }
     }
 }
